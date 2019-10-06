@@ -72,15 +72,14 @@ function init () {
     });
     downBtn.addEventListener("click", function(event){
         shuttleHeight=Number(spaceShuttleHeight.innerHTML);
-        if(shuttleHeight>-250000)
-            newHeight=shuttleHeight-10000;
-            document.getElementById("spaceShuttleHeight").innerHTML=newHeight;
-            movement=0;
-            currentPosition=rocket.style.bottom;
-            positionNum = Number(currentPosition.slice(0, currentPosition.length - 2));
-            movement-=10;
-            newPosition=(positionNum+=Number(movement))+"px"
-            rocket.style.bottom=newPosition;
+        newHeight=shuttleHeight-10000;
+        document.getElementById("spaceShuttleHeight").innerHTML=newHeight;
+        movement=0;
+        currentPosition=rocket.style.bottom;
+        positionNum = Number(currentPosition.slice(0, currentPosition.length - 2));
+        movement-=10;
+        newPosition=(positionNum+=Number(movement))+"px"
+        rocket.style.bottom=newPosition;
     });
 }
 
