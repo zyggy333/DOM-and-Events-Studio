@@ -1,21 +1,23 @@
 // Write your JavaScript code here.
 // Remember to pay attention to page loading!
-let takeOffBtn=null;
-let landBtn=null;
-let abortMissionBtn=null;
-let shuttleHeight=0;
-let newHeight=0;
-let upBtn=null;
-let downBtn=null;
-let leftBtn=null;
-let rightBtn=null;
-let movement=0;
-let currentPosition=null;
-let positionNum=0;
-let newPosition=null;
+
 
 
 function init () {
+    let takeOffBtn=null;
+    let landBtn=null;
+    let abortMissionBtn=null;
+    let shuttleHeight=0;
+    let newHeight=0;
+    let upBtn=null;
+    let downBtn=null;
+    let leftBtn=null;
+    let rightBtn=null;
+    let movement=0;
+    let currentPosition=null;
+    let positionNum=0;
+    let newPosition=null;
+    rocket.style.bottom="-250px"
     takeOffBtn=document.getElementById("takeoff");
     landBtn=document.getElementById("landing");
     abortMissionBtn=document.getElementById("missionAbort");
@@ -55,17 +57,6 @@ function init () {
         movement+=10;
         newPosition=(positionNum+=Number(movement))+"px"
         rocket.style.bottom=newPosition;
-    });
-    upBtn.addEventListener("click", function(event){
-        shuttleHeight=Number(spaceShuttleHeight.innerHTML);
-        newHeight=shuttleHeight+10000;
-        document.getElementById("spaceShuttleHeight").innerHTML=newHeight;
-        movement=0;
-        currentPosition=rocket.style.bottom;
-        positionNum = Number(currentPosition.slice(0, currentPosition.length - 2));
-        movement+=10;
-        newPosition=(positionNum+=Number(movement))+"px"
-        rocket.style.bottom=newPosition;
  
         
     });
@@ -80,8 +71,20 @@ function init () {
         newPosition=(positionNum+=Number(movement))+"px"
         rocket.style.bottom=newPosition;
     });
+    leftBtn.addEventListener("click", function(event){
+        shuttleHeight=Number(spaceShuttleHeight.innerHTML);
+        newHeight=shuttleHeight-10000;
+        document.getElementById("spaceShuttleHeight").innerHTML=newHeight;
+        movement=0;
+        currentPosition=rocket.style.left;
+        positionNum = Number(currentPosition.slice(0, currentPosition.length - 2));
+        movement-=10;
+        newPosition=(positionNum+=Number(movement))+"px"
+        rocket.style.left=newPosition;
+    });
 }
 
 
 
 window.onload = init;
+
